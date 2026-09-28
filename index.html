@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morning Letter for You 🤍</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Parisienne&family=Great+Vibes&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Quicksand", sans-serif;
+      background: #1a0810;
+      color: #fbe9ee;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       AURORA BACKGROUND
+    ========================== */
+    .aurora {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(255,150,180,.30), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(200,90,140,.35), transparent 60%),
+        radial-gradient(ellipse 90% 60% at 50% 100%, rgba(255,180,130,.28), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 10% 90%, rgba(180,60,110,.32), transparent 60%);
+      filter: blur(40px);
+      animation: auroraShift 18s ease-in-out infinite alternate;
+    }
+    @keyframes auroraShift {
+      0%   { transform: scale(1) rotate(0deg); opacity: .85; }
+      50%  { transform: scale(1.12) rotate(3deg); opacity: 1; }
+      100% { transform: scale(1.05) rotate(-3deg); opacity: .9; }
+    }
+
+    /* =========================
+       BOKEH LIGHTS
+    ========================== */
+    .bokeh {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bokeh span {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,200,220,.9), rgba(255,150,180,0) 70%);
+      filter: blur(2px);
+      animation: bokehFloat linear infinite;
+      opacity: .7;
+    }
+    @keyframes bokehFloat {
+      0%   { transform: translateY(0) scale(.6); opacity: 0; }
+      15%  { opacity: .9; }
+      100% { transform: translateY(-115vh) scale(1.3); opacity: 0; }
+    }
+
+    /* =========================
+       FALLING PETALS
+    ========================== */
+    .petal {
+      position: fixed;
+      top: -80px;
+      z-index: 2;
+      pointer-events: none;
+      color: #ffb0c8;
+      opacity: .65;
+      font-size: 22px;
+      animation: fall linear infinite;
+      filter: drop-shadow(0 0 12px rgba(255,140,175,.8));
+    }
+    @keyframes fall {
+      0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: .7; }
+      90%  { opacity: .7; }
+      100% { transform: translateY(115vh) translateX(120px) rotate(540deg); opacity: 0; }
+    }
+
+    /* =========================
+       INTRO — DUSK ROMANCE
+    ========================== */
+    .intro {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    .moon {
+      position: absolute;
+      top: 12%; right: 14%;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, #fff8ee 0%, #ffe6d4 40%, #ffc9a8 75%, #e89a7c 100%);
+      box-shadow:
+        0 0 60px rgba(255,200,170,.7),
+        0 0 130px rgba(255,170,150,.5),
+        inset -14px -10px 25px rgba(200,120,120,.35);
+      animation: moonGlow 6s ease-in-out infinite alternate;
+    }
+    @keyframes moonGlow {
+      from { box-shadow: 0 0 60px rgba(255,200,170,.6), 0 0 130px rgba(255,170,150,.4), inset -14px -10px 25px rgba(200,120,120,.35); }
+      to   { box-shadow: 0 0 85px rgba(255,210,180,.85), 0 0 180px rgba(255,180,160,.6), inset -14px -10px 25px rgba(200,120,120,.35); }
+    }
+
+    .intro-content {
+      width: min(880px, 90%);
+      text-align: center;
+      position: relative;
+      z-index: 4;
+      animation: introIn 1.8s cubic-bezier(.16,1,.3,1);
+    }
+
+    .date {
+      font-size: 11px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #ffc8d6;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-shadow: 0 0 25px rgba(255,160,190,.9);
+    }
+
+    .morning-icon {
+      font-size: 86px;
+      display: inline-block;
+      animation: floating 4s ease-in-out infinite;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 0 40px rgba(255,190,150,.85));
+    }
+
+    .intro h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(50px, 9vw, 112px);
+      line-height: .92;
+      font-weight: 600;
+      color: #fff5ef;
+      letter-spacing: -1px;
+      text-shadow:
+        0 0 45px rgba(255,170,195,.6),
+        0 0 90px rgba(255,120,160,.35);
+    }
+
+    .intro h1 em {
+      font-family: "Parisienne", cursive;
+      font-style: normal;
+      font-size: clamp(64px, 13vw, 150px);
+      color: #ffb3c9;
+      display: inline-block;
+      padding: 0 10px;
+      text-shadow:
+        0 0 55px rgba(255,130,170,.95),
+        0 0 120px rgba(255,90,140,.6);
+    }
+
+    .intro-sub {
+      max-width: 600px;
+      margin: 36px auto 0;
+      font-size: 16px;
+      line-height: 1.95;
+      color: #f6d4dd;
+      font-weight: 400;
+      text-shadow: 0 0 20px rgba(0,0,0,.4);
+    }
+
+    .scroll {
+      margin-top: 68px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: #ffbfd0;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      animation: fadeIn 2s ease .8s both;
+    }
+    .scroll span {
+      font-size: 28px;
+      animation: bounce 2s infinite;
+    }
+
+    /* =========================
+       FLOATING HEARTS
+    ========================== */
+    .floating-heart {
+      position: absolute;
+      color: #ffb8cd;
+      opacity: .65;
+      font-size: 32px;
+      animation: floatingHeart 9s ease-in-out infinite;
+      filter: drop-shadow(0 0 18px rgba(255,140,180,.95));
+      z-index: 4;
+    }
+    .h1 { left: 7%;  top: 24%; }
+    .h2 { right: 9%; top: 44%; animation-delay: 1.4s; }
+    .h3 { left: 12%; bottom: 16%; animation-delay: 2.8s; }
+    .h4 { right: 14%; bottom: 12%; animation-delay: 4.2s; }
+    .h5 { left: 47%; top: 9%;  animation-delay: 2s; font-size: 22px; }
+    .h6 { right: 33%; bottom: 6%; animation-delay: 5s; font-size: 20px; }
+
+    /* =========================
+       JOURNAL
+    ========================== */
+    .journal {
+      position: relative;
+      padding: 130px 0;
+      z-index: 3;
+    }
+
+    .wrapper { width: min(960px, 90%); margin: auto; }
+
+    .section-label {
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: #ffb0c8;
+      margin-bottom: 16px;
+      font-weight: 600;
+      text-shadow: 0 0 22px rgba(255,150,185,.9);
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(38px, 6vw, 64px);
+      color: #fff5ef;
+      margin-bottom: 80px;
+      font-weight: 600;
+      letter-spacing: -.5px;
+      text-shadow:
+        0 0 40px rgba(255,170,195,.5),
+        0 0 80px rgba(255,120,160,.3);
+    }
+
+    /* =========================
+       PHOTO
+    ========================== */
+    .memory {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 66px;
+      align-items: center;
+      margin-bottom: 130px;
+    }
+
+    .photo-wrap { position: relative; }
+
+    .photo-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -22px;
+      border-radius: 8px;
+      background: conic-gradient(from 0deg, #ffb0c8, #ffd9a8, #ff8fb0, #d16a8c, #ffb0c8);
+      filter: blur(28px);
+      opacity: .55;
+      z-index: -1;
+      animation: rotateGlow 12s linear infinite;
+    }
+    @keyframes rotateGlow {
+      to { transform: rotate(360deg); }
+    }
+
+    .photo {
+      background: linear-gradient(150deg, #fff9f5, #ffe6ea);
+      padding: 14px 14px 54px;
+      box-shadow:
+        0 40px 80px rgba(0,0,0,.65),
+        0 0 0 1px rgba(255,200,215,.7);
+      transform: rotate(-3.5deg);
+      transition: .8s cubic-bezier(.16,1,.3,1);
+      border-radius: 5px;
+    }
+
+    .photo:hover {
+      transform: rotate(0deg) scale(1.06);
+      box-shadow:
+        0 55px 110px rgba(0,0,0,.75),
+        0 0 0 1.5px rgba(255,210,225,.9);
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .photo-note {
+      position: absolute;
+      bottom: 16px; left: 0; right: 0;
+      text-align: center;
+      font-family: "Parisienne", cursive;
+      font-size: 30px;
+      color: #a83a5c;
+      letter-spacing: .5px;
+    }
+
+    .memory-text h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 44px;
+      line-height: 1.15;
+      color: #fff5ef;
+      margin-bottom: 26px;
+      font-weight: 600;
+      letter-spacing: -.5px;
+      text-shadow:
+        0 0 35px rgba(255,170,195,.5),
+        0 0 70px rgba(255,120,160,.3);
+    }
+
+    .memory-text p {
+      color: #f3cdd8;
+      line-height: 2.1;
+      font-size: 15px;
+    }
+
+    /* =========================
+       LETTER — ROMANTIC GLASS
+    ========================== */
+    .letter {
+      position: relative;
+      background: linear-gradient(165deg, rgba(255,245,242,.97), rgba(255,226,234,.95));
+      border-radius: 10px;
+      padding: clamp(40px, 7vw, 95px);
+      box-shadow:
+        0 60px 130px rgba(0,0,0,.7),
+        0 0 0 1px rgba(255,200,215,.75),
+        0 0 110px rgba(230,110,150,.4);
+      border: 1px solid rgba(255,215,225,.8);
+      overflow: hidden;
+      color: #3d1a26;
+    }
+
+    .letter::before {
+      content: "";
+      position: absolute;
+      left: 42px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #e7a0b5, #f8cfda, #e7a0b5);
+      box-shadow: 0 0 18px rgba(230,140,175,.7);
+    }
+
+    .letter::after {
+      content: "❦";
+      position: absolute;
+      top: 24px; right: 34px;
+      font-size: 46px;
+      color: #e7a0b5;
+      opacity: .55;
+    }
+
+    .letter-top {
+      margin-left: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #f0cfd8;
+      margin-bottom: 42px;
+      position: relative;
+    }
+
+    .letter-top small {
+      color: #b8567a;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .letter-top h2 {
+      font-family: "Parisienne", cursive;
+      font-size: clamp(44px, 7vw, 72px);
+      color: #7d2545;
+      margin-top: 16px;
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .letter-content { margin-left: 36px; }
+
+    .letter-content p {
+      font-size: 15px;
+      line-height: 2.2;
+      color: #4a2530;
+      margin-bottom: 32px;
+    }
+
+    .quote {
+      margin: 52px 0;
+      padding: 38px 44px;
+      background: linear-gradient(135deg, #ffe9ef, #ffd2e0);
+      border-radius: 8px;
+      border-left: 6px solid #c95a7d;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 25px;
+      line-height: 1.75;
+      color: #6d2540;
+      box-shadow:
+        0 15px 45px rgba(200,90,130,.25),
+        inset 0 0 25px rgba(255,255,255,.6);
+      position: relative;
+    }
+
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: -22px; left: 22px;
+      font-size: 100px;
+      color: #e7a0b5;
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1;
+      opacity: .65;
+    }
+
+    /* =========================
+       SPECIAL MESSAGE
+    ========================== */
+    .special { margin-top: 110px; text-align: center; }
+
+    .special h2 {
+      font-family: "Parisienne", cursive;
+      font-size: 58px;
+      color: #ffb3c9;
+      margin-bottom: 24px;
+      text-shadow:
+        0 0 45px rgba(255,130,170,.85),
+        0 0 90px rgba(255,90,140,.5);
+    }
+
+    .special p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 2.15;
+      color: #f3cdd8;
+      font-size: 15px;
+    }
+
+    /* =========================
+       BUTTON
+    ========================== */
+    .button-wrap { text-align: center; margin-top: 60px; }
+
+    .open-btn {
+      border: none;
+      background: linear-gradient(135deg, #d16a8c, #a13a5f, #d16a8c);
+      background-size: 200% auto;
+      color: #fff5f7;
+      padding: 20px 46px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: "Quicksand", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: .5s cubic-bezier(.16,1,.3,1);
+      box-shadow:
+        0 18px 42px rgba(200,70,110,.5),
+        0 0 0 1px rgba(255,180,200,.5),
+        0 0 45px rgba(230,110,145,.4);
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer {
+      to { background-position: 200% center; }
+    }
+
+    .open-btn:hover {
+      transform: translateY(-7px) scale(1.04);
+      box-shadow:
+        0 28px 65px rgba(200,70,110,.7),
+        0 0 0 1.5px rgba(255,210,225,.8),
+        0 0 70px rgba(230,110,145,.65);
+    }
+
+    /* =========================
+       FINAL
+    ========================== */
+    .final {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 130px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    .final-content { max-width: 760px; position: relative; z-index: 4; }
+
+    .final-heart {
+      font-size: 92px;
+      animation: heartbeat 2s infinite;
+      display: inline-block;
+      filter:
+        drop-shadow(0 0 45px rgba(255,140,175,.95))
+        drop-shadow(0 0 90px rgba(255,90,140,.6));
+    }
+
+    .final h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(46px, 8vw, 84px);
+      color: #fff5ef;
+      margin: 34px 0;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      text-shadow:
+        0 0 50px rgba(255,170,195,.6),
+        0 0 100px rgba(255,120,160,.35);
+    }
+
+    .final p {
+      line-height: 2.2;
+      color: #f6d4dd;
+      font-size: 15px;
+    }
+
+    .signature {
+      margin-top: 54px;
+      font-family: "Parisienne", cursive;
+      font-size: 46px;
+      color: #ffb3c9;
+      text-shadow:
+        0 0 45px rgba(255,130,170,.9),
+        0 0 90px rgba(255,90,140,.55);
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px;
+      font-size: 11px;
+      color: #d99aae;
+      letter-spacing: 3px;
+      background: #14060c;
+      text-transform: uppercase;
+      font-weight: 600;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* =========================
+       MODAL
+    ========================== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 5, 12, .82);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: .5s cubic-bezier(.16,1,.3,1);
+      z-index: 100;
+    }
+    .modal.active { opacity: 1; visibility: visible; }
+
+    .modal-box {
+      width: min(500px, 100%);
+      background: linear-gradient(165deg, #fff6f2, #ffe0e8);
+      padding: 52px 40px;
+      border-radius: 14px;
+      text-align: center;
+      transform: translateY(50px) scale(.92);
+      transition: .6s cubic-bezier(.16,1,.3,1);
+      box-shadow:
+        0 70px 140px rgba(0,0,0,.75),
+        0 0 0 1px rgba(255,200,215,.8),
+        0 0 120px rgba(230,110,145,.6);
+      border: 1px solid rgba(255,215,225,.85);
+      position: relative;
+      color: #3d1a26;
+    }
+    .modal-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 80px; height: 4px;
+      background: linear-gradient(90deg, #d16a8c, #ffb3c6, #d16a8c);
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 0 22px rgba(230,120,160,.9);
+    }
+    .modal.active .modal-box { transform: translateY(0) scale(1); }
+
+    .modal-icon {
+      font-size: 76px;
+      filter: drop-shadow(0 0 35px rgba(230,120,160,.85));
+      animation: floating 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    .modal h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 38px;
+      color: #7d2545;
+      margin: 20px 0;
+      font-weight: 700;
+    }
+
+    .modal p {
+      line-height: 2.1;
+      color: #5a2a38;
+      font-size: 14.5px;
+    }
+
+    .close {
+      margin-top: 36px;
+      padding: 16px 38px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #d16a8c, #a13a5f);
+      color: white;
+      cursor: pointer;
+      font-family: "Quicksand", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .45s cubic-bezier(.16,1,.3,1);
+      box-shadow: 0 14px 35px rgba(200,70,110,.6);
+    }
+    .close:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 22px 50px rgba(200,70,110,.75);
+    }
+
+    /* =========================
+       ANIMATION
+    ========================== */
+    @keyframes introIn {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes floatingHeart {
+      0%, 100% { transform: translateY(0) rotate(-12deg) scale(1); }
+      50% { transform: translateY(-36px) rotate(12deg) scale(1.15); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* =========================
+       MOBILE
+    ========================== */
+    @media (max-width: 700px) {
+      .intro { min-height: 100svh; }
+      .intro-content { width: 88%; }
+      .intro-sub { font-size: 14px; }
+      .moon { width: 90px; height: 90px; top: 8%; right: 8%; }
+      .journal { padding: 90px 0; }
+      .memory {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-bottom: 90px;
+      }
+      .photo { width: 88%; margin: auto; }
+      .memory-text { text-align: center; }
+      .memory-text h3 { font-size: 36px; }
+      .letter { padding: 34px 22px; }
+      .letter::before { left: 16px; }
+      .letter-top, .letter-content { margin-left: 20px; }
+      .letter-content p { font-size: 14px; line-height: 2.1; }
+      .quote { font-size: 20px; padding: 30px 26px; }
+      .special h2 { font-size: 44px; }
+      .final h2 { font-size: 44px; }
+      .modal-box { padding: 42px 28px; }
+      .signature { font-size: 36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- AURORA BACKGROUND -->
+  <div class="aurora"></div>
+
+  <!-- BOKEH LIGHTS -->
+  <div class="bokeh" id="bokeh"></div>
+
+  <!-- FALLING PETALS -->
+  <div id="petals"></div>
+
+  <!-- =========================
+       INTRO
+  ========================== -->
+  <section class="intro">
+    <div class="moon"></div>
+
+    <div class="floating-heart h1">♡</div>
+    <div class="floating-heart h2">♡</div>
+    <div class="floating-heart h3">♡</div>
+    <div class="floating-heart h4">♡</div>
+    <div class="floating-heart h5">♡</div>
+    <div class="floating-heart h6">♡</div>
+
+    <div class="intro-content">
+      <div class="date">a message for my favorite person</div>
+      <div class="morning-icon">🌤️</div>
+      <h1>Good Morning,<br><em>Semestaku.</em></h1>
+      <p class="intro-sub">
+        sebelum kamu menjalani hari ini, ada sedikit sesuatu
+        dari seseorang yang selalu berharap kamu baik-baik saja. 🤍
+      </p>
+      <div class="scroll">
+        baca perlahan
+        <span>↓</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       JOURNAL
+  ========================== -->
+  <section class="journal">
+    <div class="wrapper">
+
+      <div class="section-label">morning journal</div>
+      <h2 class="section-title">Sebuah pesan kecil untukmu</h2>
+
+      <!-- PHOTO -->
+      <div class="memory">
+        <div class="photo-wrap">
+          <div class="photo">
+            <img src="foto-kamu.jpg" alt="Foto kamu">
+            <div class="photo-note">my favorite human 🤍</div>
+          </div>
+        </div>
+
+        <div class="memory-text">
+          <h3>good morning,<br>wanita terbaikku.</h3>
+          <p>
+            mungkin buat kamu ini cuma sebuah halaman kecil
+            yang muncul di pagi hari. tapi buat aku,
+            ini adalah caraku untuk bilang bahwa sebelum
+            kamu memulai hari ini, ada seseorang yang
+            sudah lebih dulu memikirkan kamu.
+          </p>
+        </div>
+      </div>
+
+      <!-- LETTER -->
+      <article class="letter">
+        <div class="letter-top">
+          <small>26 September 2026 · pagi</small>
+          <h2>Untuk kamu, cintaku.</h2>
+        </div>
+
+        <div class="letter-content">
+          <p>
+            good morning sayanggggggkuu cintaaakuu semestaakuuu 😘🤧
+            bangunn yaa cintaaakuu 🫰🏻🤍
+          </p>
+          <p>
+            semoga pas kamuuu baca iniii, kamuuu udah bangunn
+            dengan hati yang jauhhh lebih tenanggg daripadaa
+            kemarinn. akuuu pengen banget pagiii kamuuu dimulai
+            dengan sesuatu yang bikin kamuuu senyummm,
+            walaupun mungkin cuma senyum kecil karena baca
+            pesan dari akuuu. 🥺🤍
+          </p>
+          <p>
+            semestaakuuu, akuuu harappp pagiii iniii kamuuu
+            bangunnn dengannn hatiii yanggg ringannn,
+            pikirannnn yanggg tenanggg, dannn perasaannn
+            yanggg jauhhh lebihhh nyaman. akuuu harappp
+            hariii iniii memperlakukannn kamuuu dengannn
+            lembuttt, sepertiii carakuuu mencintaiii kamuuu —
+            pelannn, tulusss, dannn penuhhh rasaaa syukurrr.
+          </p>
+
+          <div class="quote">
+            "kalau dunia hari ini terasa terlalu ramai,
+            semoga kamu selalu punya alasan kecil
+            untuk tetap tersenyum dan merasa bahwa
+            kamu tidak sendirian." 🤍
+          </div>
+
+          <p>
+            akuuu cumaaa mauuu kamuuu tauuu satu hal kecil
+            yang mungkin sering banget akuuu lupaaa bilang.
+            setiappp pagiii, akuuu selaluuu berharappp halll
+            baikkk datanggg ke kehiduppp kamuuuu.
+          </p>
+          <p>
+            akuuu berharappp langkahhh kamuuu hariii iniii
+            dimudahkannn. semogaaa urusannn kamuuu dilancarkannn.
+            semogaaa apapunn yanggg kamuuu kerjakannn hariii
+            iniii berjalan sesuai yanggg kamuuu harapkannn.
+            dannn kalau ternyataaa ada hal yanggg nggak sesuai
+            rencanaa, semogaaa kamuuu tetappp punya kekuatannn
+            buattt melewatinyyaaa.
+          </p>
+          <p>
+            akuuu tauuu kamuuu mungkin nggak selaluuu bilang
+            kalau kamuuu capekkk. kadang kamuuu mungkin cuma
+            diemmm, senyummm, terusss bilanggg "aku gapapa".
+            tapiii kalau suatu hari kamuuu ngerasa dunia terlalu
+            berattt, tolonggg ingattt kalau kamuuu nggak harus
+            selalu kuat sendirian.
+          </p>
+          <p>
+            kalauuu nantiii kamuuu capekkk, istirahatt yaaa.
+            nggak apa-apaaa kalau hari ini kamuuu nggak bisa
+            melakukan semuanya dengan sempurnaaa.
+            nggak apa-apaaa kalau kamuuu butuh waktu.
+            nggak apa-apaaa kalau kamuuu cuma mau diammm
+            sebentarr.
+          </p>
+          <p>
+            dan kalau nantiii kamuuu butuh seseorang untuk
+            dengerinnn semua cerita kamuuu, ingattt yaaa....
+            adaaa akuuu yanggg selaluuu doainnn kamuuu 🫵🏻🤍🥰,
+            selaluuu banggaaa samaaa kamuuu 👊🏻🤍💐,
+            dannn selaluuu siappp jadiii tempattt pulanggg
+            kamuuuu 👉🏻🤍👈🏻.
+          </p>
+          <p>
+            mungkin akuuu nggak selalu bisa memperbaiki
+            semua masalah yang kamuuu punya. mungkin akuuu
+            juga nggak selalu punya jawaban untuk semua
+            hal yang sedang kamuuu pikirkan.
+            tapi setidaknyaaa, akuuu mauuu jadiii orang yang
+            tetap tinggal untuk mendengarkan.
+          </p>
+          <p>
+            terimakasiii sudahhh jadiii semestaakuuu 🤍🙆🏼.
+            terimakasiii karenaaa sudahhh jadiii tempattt
+            akuuu merasaaa cukuppp, merasaaa amannn 😚,
+            dannn merasaaa dicintaiii 🫶🏻.
+          </p>
+          <p>
+            akuuu nggak tauuu apakah kamuuu sadarrr atau
+            enggakkk, tapiii kehadirannn kamuuu punya
+            tempattt yanggg spesialll bangettt buattt akuuu.
+            ada sesuatu tentang kamuuu yanggg selalu bikin
+            akuuu merasa bahwa hari yang biasa aja bisa
+            terasa jauh lebih indah.
+          </p>
+          <p>
+            jadiii hariii iniii, tolonggg jangan lupa
+            buattt sarapannn 😣. minumm yanggg cukupkk.
+            jangan terlalu memaksakannn diri kamuuu kalau
+            badan kamuuu udah bilang capekkk.
+            dannn yanggg palinggg pentinggg...
+            jangannn lupaaa senyummm 🥰.
+          </p>
+          <p>
+            karenaaa kalauuu kamuuu senyummm,
+            akuuu selalu punya satu alasan tambahan
+            buattt ikuttt senyummm juga. 🤍
+          </p>
+          <p>
+            dan satu hal lagi yanggg nggak boleh kamuuu lupaaa:
+            kamuuu ituuu berhargaaa bangettt buattt akuuu 🫠.
+            jauhhh lebihhh berhargaaa daripadaaa yanggg
+            mungkin kamuuu sadariii.
+          </p>
+          <p>
+            jadiii kalau hari ini terasa panjanggg,
+            jalaninnn pelan-pelannn yaaa.
+            satu langkahhh demi satu langkahhh.
+            nggak perlu terburu-buruuu.
+            akuuu cuma mauuu kamuuu sampai di akhir hari
+            dengan hati yang tetap utuhhh dan senyum
+            yang masih ada. 🤍
+          </p>
+        </div>
+      </article>
+
+      <!-- SPECIAL -->
+      <div class="special">
+        <h2>satu hal terakhir...</h2>
+        <p>
+          apapun yang terjadi hari ini, jangan pernah
+          berpikir kalau kamu sendirian. mungkin akuuu
+          nggak selalu berada tepat di sebelah kamuuu,
+          tapi doa, perhatian, dan rasa sayang akuuu
+          selalu punya cara untuk sampai ke kamuuu.
+          jadiii jalaniii hariii iniii dengan tenanggg yaaa,
+          cintaaakuuu. kamu sudah melakukan yang terbaik
+          sejauh ini, dan akuuu banggaaa samaaa kamuuu. 🤍
+        </p>
+        <div class="button-wrap">
+          <button class="open-btn" onclick="openMessage()">
+            ada satu pesan lagi untukmu 🤍
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       FINAL
+  ========================== -->
+  <section class="final">
+    <div class="final-content">
+      <div class="final-heart">🤍</div>
+      <h2>Selamat pagi,<br>sayangku.</h2>
+      <p>
+        hariii iniii milikkk kamuuu 🫵🏻🤍
+        <br>
+        jadiii jalaninnn dengan senyummm yaaa.
+        <br><br>
+        semogaaa semuaaa halll baikkk
+        menemukan jalannyaaa ke kamuuu.
+        <br>
+        semogaaa langkahhh kamuuu dimudahkannn,
+        hatiii kamuuu ditenangkannn,
+        dannn lelahhh kamuuu digantiii
+        dengannn rasaaa banggaaa.
+      </p>
+      <div class="signature">
+        akuuu selaluuu adaaa diii siniii 🫶🏻🤍✨
+      </div>
+    </div>
+  </section>
+
+  <footer>made with love, just for you 🤍 (KENAPA CALL NYA DIMATIIN???????)</footer>
+
+
+  <!-- =========================
+       MODAL
+  ========================== -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="modal-icon">💌</div>
+      <h3>kamu udah bangun? 🥺</h3>
+      <p>
+        kalau iyaaa, sekarang senyummm duluu.
+        karenaaa ada seseorang yang dari tadi
+        berharap pagiii kamuuu dimulai dengan
+        perasaan yanggg baikkk. 🤍
+        <br><br>
+        jangan lupa yaaa...
+        kamu dicintai, kamu dihargai,
+        dan kamu selalu punya seseorang
+        yanggg banggaaa samaaa kamuuu. 🫶🏻
+      </p>
+      <button class="close" onclick="closeMessage()">
+        iyaa, aku bangun 🤍
+      </button>
+    </div>
+  </div>
+
+
+  <script>
+    /* ---------- BOKEH LIGHTS ---------- */
+    (function createBokeh() {
+      const box = document.getElementById("bokeh");
+      for (let i = 0; i < 26; i++) {
+        const s = document.createElement("span");
+        const size = 6 + Math.random() * 22;
+        s.style.width = size + "px";
+        s.style.height = size + "px";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.bottom = "-10vh";
+        s.style.animationDuration = (10 + Math.random() * 14) + "s";
+        s.style.animationDelay = (Math.random() * 12) + "s";
+        box.appendChild(s);
+      }
+    })();
+
+    /* ---------- FALLING PETALS ---------- */
+    (function createPetals() {
+      const container = document.getElementById("petals");
+      const symbols = ["🌸", "🌹", "❀", "✿", "♡", "❤", "🥀"];
+      for (let i = 0; i < 26; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.fontSize = (14 + Math.random() * 24) + "px";
+        p.style.animationDuration = (10 + Math.random() * 12) + "s";
+        p.style.animationDelay = (Math.random() * 12) + "s";
+        container.appendChild(p);
+      }
+    })();
+
+    /* ---------- MODAL ---------- */
+    function openMessage() {
+      document.getElementById("modal").classList.add("active");
+      createHearts();
+    }
+
+    function closeMessage() {
+      document.getElementById("modal").classList.remove("active");
+    }
+
+    function createHearts() {
+      const emojis = ["🤍", "💗", "♡", "✨", "💕", "🌸", "❤️", "💖"];
+      for (let i = 0; i < 50; i++) {
+        const item = document.createElement("div");
+        item.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        item.style.position = "fixed";
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.bottom = "-40px";
+        item.style.fontSize = 16 + Math.random() * 32 + "px";
+        item.style.zIndex = "200";
+        item.style.pointerEvents = "none";
+        item.style.filter = "drop-shadow(0 0 14px rgba(255,140,175,.9))";
+
+        const duration = 3.5 + Math.random() * 4;
+        const drift = (Math.random() - 0.5) * 160;
+
+        item.animate(
+          [
+            { transform: "translateY(0) translateX(0) scale(.4) rotate(0deg)", opacity: 0 },
+            { transform: `translateY(-45vh) translateX(${drift * 0.5}px) scale(1) rotate(${drift * 0.3}deg)`, opacity: 1 },
+            { transform: `translateY(-120vh) translateX(${drift}px) scale(1.6) rotate(${drift * 0.6}deg)`, opacity: 0 }
+          ],
+          { duration: duration * 1000, easing: "ease-out" }
+        );
+
+        document.body.appendChild(item);
+        setTimeout(() => item.remove(), duration * 1000);
+      }
+    }
+
+    document.getElementById("modal").addEventListener("click", function (e) {
+      if (e.target === this) closeMessage();
+    });
+  </script>
+
+</body>
+</html>
